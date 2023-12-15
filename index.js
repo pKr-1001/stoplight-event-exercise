@@ -43,6 +43,22 @@
     console.log(`Left ${buttonText} button`);
   }
 
+  // Bonus.
+  let status = false;
+  const turned = (event) => {
+    let clickId = event.target.id;
+    status = !status;
+    const turnedText = event.target.textContent;
+    if(clickId === "stopButton" || clickId === "slowButton" || clickId === "goButton"){
+      status === false ? console.log(`${turnedText} bulb off`) : console.log(`${turnedText} bulb on`)
+
+    }
+}
+
+  stopButton.addEventListener('click',turned);
+  slowButton.addEventListener('click', turned);
+  goButton.addEventListener('click', turned);
+
 
   stopButton.addEventListener('mouseenter', handleMouse);
   slowButton.addEventListener('mouseenter', handleMouse);
@@ -104,25 +120,3 @@
 //   light.classList.add('stop');
 //   //})
 
-//   //bous
-//   controlDiv.addEventListener('click', function(event) {
-//     let buttonId = event.target.id;
-//     if(buttonId === "controls") {
-//       return;
-//     }
-
-//     let status;
-//     if(buttonId === "stopButton") {
-//       console.log(event.target);
-//       if(event.target.classList.contains("stop")) {
-//         status = (event.target.classList.contains("stop")) ? "on" : "off";
-//       } else if(buttonId === "slowButton") {
-//         status = (event.target.classList.contains("slow")) ? "on" : "off";
-//       } else if(buttonId === "goButton") {
-//         status = (event.target.classList.contains("go")) ? "on" : "off";
-//       }
-
-//       const buttonText = event.target.textContent;
-//       console.log(`${buttonText} bulb ${status}`);
-    
-// }});
